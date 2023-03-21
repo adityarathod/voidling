@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "bot-core"
+version = "0.1.0"
+description = "bot core for voidling-bot"
+authors = ["Aditya Rathod <15635979+adityarathod@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.11"
+rasa = [
+    {extras = ["metal"], version = "^3.4.6", platform = "darwin", markers = "platform_machine == 'arm64'"},
+    {version = "^3.4.6", platform = "darwin"},
+    {version = "^3.4.6", platform = "linux"}
+]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
