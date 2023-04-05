@@ -18,6 +18,17 @@ class ChampLore(BaseModel):
     lore: str
 
 
+def get_lore_by_id(champ_id: str) -> ChampLore:
+    """
+    Get the lore for a given champion.
+    :param champ_id: The champion ID to get the lore for.
+    :return: The lore for the given champion.
+    """
+    db = get_db()
+    doc = db["lore"].find_one({"id": champ_id})
+    return ChampLore(**doc)
+
+
 def persist_lore(lore: ChampLore):
     """
     Persist the lore for a given champion.
