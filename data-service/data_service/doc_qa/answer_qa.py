@@ -4,7 +4,7 @@ log = logging.getLogger(__name__)
 
 import nltk
 
-from data_service.doc_qa import QAAnswer
+from data_service.doc_qa.types import QAAnswer
 
 stopwords = nltk.corpus.stopwords.words("english")
 
