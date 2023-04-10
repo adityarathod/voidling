@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"name": "Project Root",
+			"path": "../"
+		},
+		{
+			"name": "Bot Core",
+			"path": "../bot-core"
+		},
+		{
+			"name": "Data Service",
+			"path": "../data-service"
+		},
+		{
+			"name": "Discord Plugin",
+			"path": "../discord-plugin"
+		}
+	],
+	"settings": {}
+}
