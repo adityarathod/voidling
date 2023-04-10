@@ -2,7 +2,7 @@ import logging
 
 log = logging.getLogger(__name__)
 
-from typing import List
+from typing import Dict, List
 
 from pydantic import BaseModel
 from data_service.database.connection import get_db
@@ -18,15 +18,22 @@ class ChampLore(BaseModel):
     lore: str
 
 
+LORE_CACHE: Dict[str, ChampLore] = {}
+
+
 def get_lore_by_id(champ_id: str) -> ChampLore:
     """
     Get the lore for a given champion.
     :param champ_id: The champion ID to get the lore for.
     :return: The lore for the given champion.
     """
+    if champ_id in LORE_CACHE:
+        return LORE_CACHE[champ_id]
     db = get_db()
     doc = db["lore"].find_one({"id": champ_id})
-    return ChampLore(**doc)
+    lore = ChampLore(**doc)
+    LORE_CACHE[champ_id] = lore
+    return lore
 
 
 def persist_lore(lore: ChampLore):

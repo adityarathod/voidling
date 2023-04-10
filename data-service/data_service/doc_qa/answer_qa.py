@@ -1,4 +1,9 @@
 import logging
+import nltk
+
+from data_service.doc_qa import QAAnswer
+
+stopwords = nltk.corpus.stopwords.words("english")
 
 log = logging.getLogger(__name__)
 
@@ -10,12 +15,19 @@ question_answerer = pipeline(
 summarizer = pipeline("summarization", model="yasminesarraj/flan-t5-small-samsum")
 
 
-def get_answer_with_rephrase(question: str, lore: str) -> str:
+def get_answer_with_rephrase(question: str, lore: str) -> QAAnswer:
     global question_answerer, summarizer
+    # remove stop words from question
+    # question = "".join([word for word in question.split() if word not in stopwords])
     result = question_answerer(question=question, context=lore)
     log.info(f"Extraction model returned {str(result)}")
-    phrased_convo = f"""User: {question}\nSummarizer: {result['answer']}"""
+    extracted_context = result["answer"]
+    qa_result = QAAnswer(confidence=result["score"])
+    phrased_convo = f"""User: {question}\nWe: \"{extracted_context}\""""
     summary = summarizer(
-        phrased_convo, min_length=0, max_length=len(phrased_convo) // 2
+        phrased_convo,
+        min_length=min(10, len(question)),
+        max_length=len(phrased_convo) // 2,
     )
-    return summary[0]["summary_text"]
+    qa_result.answer = summary[0]["summary_text"]
+    return qa_result
