@@ -1,5 +1,7 @@
-import discord
 from typing import List
+
+import discord
+
 from voidling_discord.message_processor import MessageOrEmbed, RasaMessage
 
 

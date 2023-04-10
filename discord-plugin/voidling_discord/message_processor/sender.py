@@ -1,6 +1,7 @@
-from typing import List
-import requests
 import os
+from typing import List
+
+import requests
 
 from voidling_discord.message_processor import RasaMessage
 

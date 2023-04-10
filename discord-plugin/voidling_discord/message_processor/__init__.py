@@ -1,9 +1,10 @@
 from typing import List
+
 from discord import Message
 
-from voidling_discord.message_processor.types import RasaMessage, MessageOrEmbed
-from voidling_discord.message_processor.sender import send_receive_messages
 from voidling_discord.message_processor.response_builder import build_message_responses
+from voidling_discord.message_processor.sender import send_receive_messages
+from voidling_discord.message_processor.types import MessageOrEmbed, RasaMessage
 
 __all__ = ["RasaMessage", "MessageOrEmbed"]
 

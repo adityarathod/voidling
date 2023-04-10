@@ -1,6 +1,7 @@
 from typing import Optional, Union
-from pydantic import BaseModel
+
 from discord import Embed
+from pydantic import BaseModel
 
 
 class RasaMessage(BaseModel):

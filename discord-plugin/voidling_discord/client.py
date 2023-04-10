@@ -1,5 +1,6 @@
-import discord
 import os
+
+import discord
 
 from voidling_discord.message_processor import message_handler
 
