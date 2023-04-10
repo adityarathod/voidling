@@ -35,7 +35,10 @@ class VoidlingClient(discord.Client):
             return
         message.content = message.content[len(BOT_PREFIX) :]
         # mark as typing
-        await message.channel.typing()
+        async with message.channel.typing():
+            await self._communicate_with_server(message)
+
+    async def _communicate_with_server(self, message: discord.Message):
         # get all responses from the server
         server_responses = message_handler(message)
         # send all responses given
