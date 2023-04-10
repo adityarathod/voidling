@@ -1,5 +1,6 @@
-from typing import List
 import os
+from typing import List
+
 import numpy as np
 
 DOC_VECTORS_PATH = os.getenv("DOC_VECTORS_PATH")

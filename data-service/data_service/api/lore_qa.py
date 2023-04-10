@@ -1,7 +1,8 @@
 from flask import Blueprint, request
-from data_service.doc_ranking import rank_vector, vectorize_query
+
 from data_service.database.lore_store import get_lore_by_id
-from data_service.doc_qa import get_answer_with_rephrase, QAAnswer
+from data_service.doc_qa import get_answer_with_rephrase
+from data_service.doc_ranking import rank_vector, vectorize_query
 
 bp = Blueprint("lore_qa", __name__)
 

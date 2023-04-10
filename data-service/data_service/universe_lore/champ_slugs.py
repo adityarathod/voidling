@@ -2,10 +2,10 @@ import logging
 
 log = logging.getLogger(__name__)
 
-import requests
 from typing import List
-from pydantic import BaseModel
 
+import requests
+from pydantic import BaseModel
 
 CHAMP_SLUGS_URL = (
     "https://universe-meeps.leagueoflegends.com/v1/en_us/search/index.json"

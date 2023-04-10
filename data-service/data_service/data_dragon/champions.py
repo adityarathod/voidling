@@ -3,7 +3,9 @@ import logging
 log = logging.getLogger(__name__)
 
 from typing import List
+
 from pydantic import BaseModel
+
 from data_service.data_dragon.util import make_request
 
 

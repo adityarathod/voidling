@@ -7,7 +7,6 @@ from bs4 import BeautifulSoup
 
 from data_service.universe_lore.champ_slugs import ChampSlug
 
-
 LORE_BASE_URL = "https://universe-meeps.leagueoflegends.com/v1/en_us/champions/$champ_slug/index.json"
 
 

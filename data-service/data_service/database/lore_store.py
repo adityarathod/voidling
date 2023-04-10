@@ -5,6 +5,7 @@ log = logging.getLogger(__name__)
 from typing import Dict, List
 
 from pydantic import BaseModel
+
 from data_service.database.connection import get_db
 
 

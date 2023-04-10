@@ -4,13 +4,10 @@ log = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)
 
 from typing import List, Tuple
+
 from data_service.data_dragon.champions import Champion, get_all_champs
 from data_service.database import ChampLore, persist_all_lore
-from data_service.universe_lore import (
-    ChampSlug,
-    get_single_champ_lore,
-    get_champ_slugs,
-)
+from data_service.universe_lore import ChampSlug, get_champ_slugs, get_single_champ_lore
 
 
 def add_ids_to_champ_lore(

@@ -1,8 +1,8 @@
 import argparse
 import os
 
-from data_service.database.lore_store import ChampLore
 from data_service.database.connection import get_db
+from data_service.database.lore_store import ChampLore
 
 
 def get_args() -> argparse.Namespace:

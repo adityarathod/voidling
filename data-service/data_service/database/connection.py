@@ -1,5 +1,6 @@
 import os
 from typing import Optional
+
 from pymongo import MongoClient
 from pymongo.server_api import ServerApi
 

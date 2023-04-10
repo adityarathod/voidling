@@ -1,4 +1,5 @@
 import concurrent.futures
+
 import requests
 
 DATA_SERVICE_TEST_URL = "http://localhost:8000/lore_question/"

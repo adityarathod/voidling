@@ -1,5 +1,6 @@
-import requests
 import os
+
+import requests
 
 DDRAGON_ROOT = os.getenv("DDRAGON_ROOT_URL")
 

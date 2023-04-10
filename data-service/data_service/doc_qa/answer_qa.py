@@ -1,11 +1,13 @@
 import logging
+
+log = logging.getLogger(__name__)
+
 import nltk
 
 from data_service.doc_qa import QAAnswer
 
 stopwords = nltk.corpus.stopwords.words("english")
 
-log = logging.getLogger(__name__)
 
 from transformers import pipeline
 

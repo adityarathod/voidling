@@ -3,17 +3,17 @@ import logging
 log = logging.getLogger("lore_vectorizer")
 logging.basicConfig(level=logging.INFO)
 
-import os
-import joblib
 import argparse
-import numpy as np
-
+import os
 from pathlib import Path
 from typing import List
+
+import joblib
+import numpy as np
+from nltk.corpus import stopwords
+from sklearn.decomposition import TruncatedSVD
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.pipeline import Pipeline
-from sklearn.decomposition import TruncatedSVD
-from nltk.corpus import stopwords
 
 # all English stop words
 stop_words = list(set(stopwords.words("english")))
