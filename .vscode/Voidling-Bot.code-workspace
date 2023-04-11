@@ -9,6 +9,10 @@
 			"path": "../bot-core"
 		},
 		{
+			"name": "Actions Server",
+			"path": "../bot-actions-server"
+		},
+		{
 			"name": "Data Service",
 			"path": "../data-service"
 		},
