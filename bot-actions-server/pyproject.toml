@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "bot-actions-server"
+version = "0.1.0"
+description = "actions server for voidling-bot"
+authors = ["Aditya Rathod <15635979+adityarathod@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.11"
+requests = "^2.28.2"
+python-dotenv = "^1.0.0"
+websockets = "10.0"
+rasa-sdk = "^3.4"
+
+[tool.poetry.group.dev.dependencies]
+black = "^22"
