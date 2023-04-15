@@ -130,3 +130,6 @@ dmypy.json
 
 # Secrets
 .env
+
+# Vectorizer trained model
+trained_vectorizer/

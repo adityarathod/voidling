@@ -19,6 +19,7 @@ numpy = "^1.24.2"
 transformers = {extras = ["pytorch"], version = "^4.27.4"}
 flask = "^2.2.3"
 torch = "^2.0.0"
+sanic = "^23.3.0"
 
 
 [tool.poetry.group.dev.dependencies]

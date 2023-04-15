@@ -1,14 +1,14 @@
-from flask import Blueprint, request
+from sanic import Blueprint, Request, json
 
 from data_service.database.lore_store import get_lore_by_id
 from data_service.doc_qa import get_answer_with_rephrase
 from data_service.doc_ranking import rank_vector, vectorize_query
 
-bp = Blueprint("lore_qa", __name__)
+bp = Blueprint("lore_qa", url_prefix="/lore_question")
 
 
 @bp.route("/", methods=["POST"])
-def answer_lore_qa():
+async def answer_lore_qa(request: Request):
     query = request.json["question"]
     # vectorize query and get top doc
     vect = vectorize_query(query)
@@ -21,4 +21,4 @@ def answer_lore_qa():
     answer = get_answer_with_rephrase(query, lore)
 
     # return answer as json
-    return answer.dict()
+    return json(answer.dict())
