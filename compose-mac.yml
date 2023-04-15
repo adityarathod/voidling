@@ -1,0 +1,23 @@
+services:
+  data-service:
+    build:
+      context: ./data-service
+      args:
+        - RIOT_API_KEY=${RIOT_API_KEY}
+        - DB_URL=${DB_URL}
+    ports:
+      - "8000:8000"
+
+  actions-server:
+    build: ./bot-actions-server
+    ports:
+      - "5055:5055"
+    depends_on:
+      - data-service
+
+  discord-plugin:
+    build:
+      context: ./discord-plugin
+      args:
+        - DISCORD_TOKEN=${DISCORD_TOKEN}
+        - RASA_SERVER_URL=${RASA_SERVER_URL}
