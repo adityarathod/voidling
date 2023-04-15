@@ -1,3 +1,7 @@
+import logging
+
+log = logging.getLogger(__name__)
+
 import os
 from typing import List
 
@@ -18,6 +22,7 @@ def send_receive_messages(message_text: str, sender: str) -> List[RasaMessage]:
     )
     result.raise_for_status()
     raw_json = result.json()
+    log.info(f"Rasa response to {message_text}: {raw_json}")
     if not isinstance(raw_json, list):
         raise ValueError("Expecting a list of responses from Rasa")
     return [RasaMessage(**message) for message in raw_json]
