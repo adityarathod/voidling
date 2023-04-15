@@ -10,3 +10,44 @@ stories:
     steps:
       - intent: lore_question
       - action: action_lore_query
+
+  - story: match history without summoner name but with num matches
+    steps:
+      - intent: match_history
+        entities:
+          - num_matches: "5"
+      - action: action_populate_summoner_info
+      - action: summoner_name_form
+      - active_loop: summoner_name_form
+      - slot_was_set:
+          - requested_slot: summoner_name
+      - intent: summoner_name_inform
+        entities:
+          - summoner_name: Dichotomous
+      - action: validate_summoner_name_form
+      - slot_was_set:
+          - summoner_name: Dichotomous
+      - action: action_deactivate_loop
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
+      - action: action_retrieve_match_history
+
+  - story: match history without summoner name 2
+    steps:
+      - intent: match_history
+      - action: action_populate_summoner_info
+      - action: summoner_name_form
+      - active_loop: summoner_name_form
+      - slot_was_set:
+          - requested_slot: summoner_name
+      - intent: summoner_name_inform
+        entities:
+          - summoner_name: Dichotomous
+      - slot_was_set:
+          - summoner_name: Dichotomous
+      - action: validate_summoner_name_form
+      - action: action_deactivate_loop
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null

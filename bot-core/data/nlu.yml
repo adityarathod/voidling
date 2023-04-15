@@ -1,6 +1,24 @@
 version: "3.1"
-
 nlu:
+  - intent: hello
+    examples: |
+      - hey
+      - hello
+      - hi
+      - what's up?
+      - hey there
+      - howdy
+      - good morning
+      - good afternoon
+      - good evening
+      - good night
+      - greetings
+      - salutations
+      - yo
+      - sup
+      - hey lol
+      - hello lol
+      - hi lol
   - intent: what_is_this
     examples: |
       - what can this bot do?
@@ -9,7 +27,6 @@ nlu:
       - what can u do
       - functionality
       - help
-
   - intent: lore_question
     examples: |
       - does aurelion sol have any equals?
@@ -24,3 +41,28 @@ nlu:
       - who is called 'the blind monk'?
       - what is lux's power?
       - what type of animal is rammus?
+  - intent: match_history
+    examples: |
+      - what are my last [5](num_matches) matches?
+      - give me the previous [10](num_matches) matches
+      - show me my last [3](num_matches) matches
+      - what were my last dozen matches
+      - how were my most recent games?
+      - how did my past [5](num_matches) games go?
+      - how were my matches recently?
+  - intent: summoner_name_inform
+    examples: |
+      - my summoner name is [Voidling](summoner_name)
+      - it's [Voidling](summoner_name)
+      - [Voidling](summoner_name)
+      - [Voidling](summoner_name) is my summoner name
+      - [Voidling](summoner_name) is my name
+      - [Voidling](summoner_name) is my in-game name
+      - [Voidling](summoner_name) is my IGN
+      - i think my summoner name is [Voidling](summoner_name)
+      - i think it's [Voidling](summoner_name)
+      - tbh i'm not sure but i think it's [Voidling](summoner_name)
+      - hehe it's [Voidling](summoner_name)
+      - it's [Voidling](summoner_name) i think
+      - [Dichotomous](summoner_name)
+      - [Dichotomous](summoner_name)

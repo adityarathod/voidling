@@ -5,3 +5,25 @@ rules:
     steps:
       - intent: what_is_this
       - action: utter_about
+
+  - rule: Lore queries are handled by the lore query action
+    steps:
+      - intent: lore_question
+      - action: action_lore_query
+
+  - rule: Summoner name form
+    steps:
+      - action: summoner_name_form
+      - active_loop: summoner_name_form
+
+  - rule: Finish summoner_name form
+    condition:
+      # Condition that form is active.
+      - active_loop: summoner_name_form
+    steps:
+      - action: summoner_name_form
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
+      - action: utter_reading_match_history
+      - action: action_retrieve_match_history

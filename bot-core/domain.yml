@@ -1,16 +1,51 @@
 version: "3.1"
-
+entities:
+  - summoner_name
+  - num_matches
 intents:
-  - what_is_this
   - lore_question
-
+  - match_history
+  - summoner_name_inform
+  - what_is_this
 actions:
+  - validate_summoner_name_form
+  - action_populate_summoner_info
   - action_lore_query
-
+  - action_retrieve_match_history
+slots:
+  summoner_name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: summoner_name
+      - type: custom
+  puuid:
+    type: text
+    mappings:
+      - type: custom
+  num_matches:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: num_matches
+forms:
+  summoner_name_form:
+    required_slots:
+      - summoner_name
+      - num_matches
 responses:
   utter_about:
-    - text: "Hi! I'm **Voidling**, a bot developed to help with League of Legends lore, match tracking, build tracking, and more! I was developed for the NLP class CS4395 at UT Dallas :)"
-
+    - text: Hi! I'm **Voidling**, a bot developed to help with League of Legends lore and match tracking! I was developed for the NLP class CS4395 at UT Dallas :)
+  utter_dont_know_summoner_name:
+    - text: Hmm, I don't think I know your summoner name yet.
+  utter_ask_summoner_name:
+    - text: What's your summoner name? That's the name you go by in-game!
+  utter_ask_num_matches:
+    - text: How many previous matches would you like to see?
+  utter_reading_match_history:
+    - text: Okay, let me get your match history!
+  utter_match_history_error:
+    - text: Sorry, I'm having trouble getting your match history right now :( If this keeps happening, please contact my developer.
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
